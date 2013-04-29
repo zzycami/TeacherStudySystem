@@ -7,6 +7,11 @@ include('global.php');
 		<meta charset="utf-8" />
 		<link href="<?php echo STYLE_ROOT."bootstrap.css";?>" rel="stylesheet" type="text/css" media="screen" />
 		<link href="<?php echo STYLE_ROOT."bootstrap-responsive.css";?>" rel="stylesheet" type="text/css" media="screen" />
+		<link href="<?php echo STYLE_ROOT."jquery-ui-1.10.2.custom.css";?>" rel="stylesheet" type="text/css" media="screen" />
+		<!-- Load js and css -->
+		<script type="text/javascript" src="<?php echo SCRIPT_ROOT."jquery-1.9.1.js"?>"></script>
+		<script type="text/javascript" src="<?php echo SCRIPT_ROOT."bootstrap.js";?>"></script>
+		<script type="text/javascript" src="<?php echo SCRIPT_ROOT."jquery-ui-1.10.2.custom.js";?>"></script>
 		<title>中小学教师研修管理系统</title>
 		<style type="text/css">
 			body {
