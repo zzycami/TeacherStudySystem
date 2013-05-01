@@ -21,17 +21,33 @@ class Mysql {
 	
 	
 	public function query($sql){
+		if($sql == "") return null;
 		$sql = stripcslashes($sql);
 		$res = mysql_query($sql, $this->_connect);
 		if($res){
 			return $res;
 		}else {
-			error(mysql_error());
+			error(mysql_error()." sql:".$sql);
 		}
 	}
 	
 	public function fetchAll($sql){
+		if( ! $result = $this->query($sql) )return array();
+		if( ! mysql_num_rows($result) )return array();
+		$rows = array();
+		while($rows[] = mysql_fetch_array($result,MYSQL_ASSOC)){}
+		mysql_free_result($result);
+		array_pop($rows);
+		return $rows;
+	}
+
+	public function fetchOne($sql){
 		$res = $this->query($sql);
 		return mysql_fetch_array($res);
+	}
+
+	public function filterString($str){
+		$str = trim($str);
+		return stripcslashes($str);
 	}
 }

@@ -58,9 +58,4 @@ class Db_Table_User extends Mysql{
 			
 		)";
 	}
-	
-	public function filterString($str){
-		$str = trim($str);
-		return stripcslashes($str);
-	}
 }

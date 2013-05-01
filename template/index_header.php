@@ -12,6 +12,7 @@ include('global.php');
 		<script type="text/javascript" src="<?php echo SCRIPT_ROOT."jquery-1.9.1.js"?>"></script>
 		<script type="text/javascript" src="<?php echo SCRIPT_ROOT."bootstrap.js";?>"></script>
 		<script type="text/javascript" src="<?php echo SCRIPT_ROOT."jquery-ui-1.10.2.custom.js";?>"></script>
+		<script type="text/javascript" src="<?php echo SCRIPT_ROOT."global.js";?>"></script>
 		<title>中小学教师研修管理系统</title>
 		<style type="text/css">
 			body {
