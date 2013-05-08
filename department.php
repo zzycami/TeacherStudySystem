@@ -5,7 +5,7 @@ include_once 'logic/department.php';
 $departmentList = $GLOBALS["department_list"];
 
 // include head file
-include_once 'template/index_header.php';
+include_once 'template/admin_header.php';
 ?>
 
 <div class="container">
@@ -32,36 +32,11 @@ include_once 'template/index_header.php';
 						echo "<td>{$department["id"]}</td>";
 						echo "<td>{$department["title"]}</td>";
 						echo "<td>{$department["num"]}</td>";
-						echo "<td><button class='btn btn-link'>编辑</button>  <button class='btn btn-link'>删除</button></td>";
-						echo "</tr>";
-					}
-					?>
-				</tbody>
-			</table>
-		</div>
-
-		<div class="span6">
-			<div class="row" style="margin-bottom:20px;">
-				<button class="btn btn-primary pull-right" id="add-new">新增</button>
-			</div>
-
-			<table class="table table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>序号</th>
-						<th>部门组名称</th>
-						<th>人数</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-					foreach ($departmentList as $key => $department) {
-						echo "<tr>";
-						echo "<td>{$department["id"]}</td>";
-						echo "<td>{$department["title"]}</td>";
-						echo "<td>{$department["num"]}</td>";
-						echo "<td><button class='btn btn-link'>编辑</button>  <button class='btn btn-link'>删除</button></td>";
+						echo "<td>
+						<button onclick='editDepartment({$department["id"]})' class='btn btn-mini btn-primary'><i class=\"icon-edit\"></i> 编辑</button>  
+						<a class='btn btn-mini btn-danger' href='department.php?action=delete&id={$department["id"]}'>
+						<i class='icon-trash'></i> 删除</a>
+						</td>";
 						echo "</tr>";
 					}
 					?>
@@ -73,8 +48,8 @@ include_once 'template/index_header.php';
 
 
 <!-- 新增部门的弹出框 -->
-<div class="modal hide fade">
-	<form action="department.php" method="post">
+<div id="department-add-modal" class="modal hide fade">
+	<form action="department.php?action=add" method="post">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 			<h3>新增部门</h3>
@@ -108,7 +83,43 @@ include_once 'template/index_header.php';
 	</form>
 </div>
 
+<script type="text/javascript">
+function editDepartment(id){
+	$.ajax({
+		"type":"post",
+		"dataType":"json",
+		"data":{"id":id},
+		"url":"logic/department.ajax.php",
+		"success":function(data){
+			$modal = $("#department-add-modal");
+			$form = $("form", $modal);
+			$form.attr("action", "department.php?action=update&id="+data.id);
+			$title = $("h3", $modal);
+			$title.html("编辑部门");
+
+			$departmentTitle = $("input[name=title]", $modal);
+			$departmentTitle.val(data.title);
+
+			$departmentDescription = $("textarea[name=description]", $modal);
+			$departmentDescription.html(data.description);
+
+			$button = $("button[type=submit]", $modal);
+			$button.html("编辑");
+
+			$modal.modal();
+		}
+	});
+}
+
+
+// open the add modal
+$(document).ready(function(){
+	$("#add-new").click(function(){
+		$("#department-add-modal").modal();
+	});
+});
+</script>
 
 <?php
-include_once 'template/index_footer.php'; 
+include_once 'template/admin_footer.php'; 
 ?>

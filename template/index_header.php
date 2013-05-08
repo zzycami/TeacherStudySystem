@@ -32,6 +32,7 @@ include('global.php');
 							<li class="active"><a href="index.php">首页</a></li>
 							<li><a href="#">教师课程</a></li>
 							<li><a href="#">教师资源</a></li>
+							<li><a href="department.php">后台</a></li>
 							<li class="dropdown">
 								<a class="dropdown-toggle"  data-toggle="dropdown" href="#">
 									关于
