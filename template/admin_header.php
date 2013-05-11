@@ -1,3 +1,6 @@
+<?php
+$module = $GLOBALS["module"];
+?>
 <!DOCTYPE html>
 <html lang="zh">
   <head>
@@ -43,8 +46,8 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">基础设置</li>
-              <li class="active"><a href="department.php">部门组设置</a></li>
-              <li><a href="subject.php">学科组设置</a></li>
+              <li <?php if($module == "department") echo "class='active'";?> ><a href="department.php">部门组设置</a></li>
+              <li <?php if($module == "subject") echo "class='active'";?> ><a href="subject.php">学科组设置</a></li>
               <li class="nav-header">主要功能</li>
               <li><a href="#">资源</a></li>
               <li class="nav-header">用户相关</li>

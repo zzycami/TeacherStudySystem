@@ -20,8 +20,8 @@ class Db_Table_Subject extends Mysql{
 	public function addSubject($Subject){
 		$title = $this->filterString($Subject["title"]);
 		$description = $this->filterString($Subject["description"]);
-		$sql = "insert into {$this->tableName} values('{$title}', '$description')";
-		return $this->query(sql);
+		$sql = "insert into {$this->tableName}(title, description) values('{$title}', '$description')";
+		return $this->query($sql);
 	}
 
 	public function deleteSubject($id){
@@ -44,7 +44,7 @@ class Db_Table_Subject extends Mysql{
 	public function getSubjectById($id){
 		$id = intval($id);
 		$sql = "select * from {$this->tableName} where id={$id}";
-		return $this->fetchAll($sql);
+		return $this->fetchOne($sql);
 	}
 
 	public function modifySubject($Subject){
@@ -52,5 +52,7 @@ class Db_Table_Subject extends Mysql{
 		$title = $this->filterString($Subject["title"]);
 		$description = $this->filterString($Subject["description"]);
 		$sql = "update {$this->tableName} set title = '{$title}', description = '{$description}' where id={$id}";
+		$this->query($sql);
 	}
+
 }

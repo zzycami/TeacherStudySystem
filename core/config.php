@@ -4,7 +4,7 @@ define("APP_PATH", dirname(dirname(__FILE__))."/");
 define("CORE_PATH", APP_PATH."core/");
 define("TABLE_ROOT", CORE_PATH."tables/");
 
-define("SITE", "http://localhost/");
+define("SITE", "http://www.teacher.com/");
 define("IMAGE_ROOT", SITE."image/");
 define("STYLE_ROOT", SITE."style/");
 define("SCRIPT_ROOT", SITE."script/");
