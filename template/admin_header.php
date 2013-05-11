@@ -40,9 +40,9 @@ $module = $GLOBALS["module"];
       </div>
     </div>
 
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span3">
+    <div class="container">
+      <div class="row">
+        <div class="span2">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">基础设置</li>
@@ -58,5 +58,5 @@ $module = $GLOBALS["module"];
           </div><!--/.well -->
         </div><!--/span-->
 
-        <div class="span7 pull-right">
+    <div class="span8 pull-right">
         
