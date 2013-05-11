@@ -10,41 +10,38 @@ $GLOBALS["module"] = "department";
 include_once 'template/admin_header.php';
 ?>
 
-<div class="container">
-
-	<div class="row">
-		<div class="span6">
-			<div class="row" style="margin-bottom:20px;">
-				<button class="btn btn-primary pull-right" id="add-new">新增</button>
-			</div>
-
-			<table class="table table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>序号</th>
-						<th>部门组名称</th>
-						<th>人数</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-					foreach ($departmentList as $key => $department) {
-						echo "<tr>";
-						echo "<td>{$department["id"]}</td>";
-						echo "<td>{$department["title"]}</td>";
-						echo "<td>{$department["num"]}</td>";
-						echo "<td>
-						<button onclick='editDepartment({$department["id"]})' class='btn btn-mini btn-primary'><i class=\"icon-edit\"></i> 编辑</button>  
-						<a class='btn btn-mini btn-danger' href='department.php?action=delete&id={$department["id"]}'>
-						<i class='icon-trash'></i> 删除</a>
-						</td>";
-						echo "</tr>";
-					}
-					?>
-				</tbody>
-			</table>
+<div class="row">
+	<div class="span6">
+		<div class="row" style="margin-bottom:20px;">
+			<button class="btn btn-primary pull-right" id="add-new">新增</button>
 		</div>
+
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>部门组名称</th>
+					<th>人数</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				foreach ($departmentList as $key => $department) {
+					echo "<tr>";
+					echo "<td>{$department["id"]}</td>";
+					echo "<td>{$department["title"]}</td>";
+					echo "<td>{$department["num"]}</td>";
+					echo "<td>
+					<button onclick='editDepartment({$department["id"]})' class='btn btn-mini btn-primary'><i class=\"icon-edit\"></i> 编辑</button>  
+					<a class='btn btn-mini btn-danger' href='department.php?action=delete&id={$department["id"]}'>
+					<i class='icon-trash'></i> 删除</a>
+					</td>";
+					echo "</tr>";
+				}
+				?>
+			</tbody>
+		</table>
 	</div>
 </div>
 

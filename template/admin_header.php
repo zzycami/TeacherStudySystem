@@ -51,12 +51,12 @@ $module = $GLOBALS["module"];
               <li class="nav-header">主要功能</li>
               <li><a href="#">资源</a></li>
               <li class="nav-header">用户相关</li>
-              <li><a href="#">添加教师</a></li>
+              <li <?php if($module == "add_user") echo "class='active'";?> ><a href="adduser.php">添加教师</a></li>
               <li><a href="#">查看教师</a></li>
               <li><a href="#">编辑教师</a></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
 
-    <div class="span8 pull-right">
+    <div class="span8">
         

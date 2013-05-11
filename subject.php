@@ -9,39 +9,38 @@ $GLOBALS["module"] = "subject";
 include_once 'template/admin_header.php';
 ?>
 
-<div class="container">
 
-	<div class="row">
-		<div class="span6">
-			<div class="row" style="margin-bottom:20px;">
-				<button class="btn btn-primary pull-right" id="add-new">新增</button>
-			</div>
 
-			<table class="table table-bordered table-hover">
-				<thead>
-					<tr>
-						<th>序号</th>
-						<th>学科组名称</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					<?php
-					foreach ($subjectList as $key => $subject) {
-						echo "<tr>";
-						echo "<td>{$subject["id"]}</td>";
-						echo "<td>{$subject["title"]}</td>";
-						echo "<td>
-						<button onclick='editsubject({$subject["id"]})' class='btn btn-mini btn-primary'><i class=\"icon-edit\"></i> 编辑</button>  
-						<a class='btn btn-mini btn-danger' href='subject.php?action=delete&id={$subject["id"]}'>
-						<i class='icon-trash'></i> 删除</a>
-						</td>";
-						echo "</tr>";
-					}
-					?>
-				</tbody>
-			</table>
+<div class="row">
+	<div class="span6">
+		<div class="row" style="margin-bottom:20px;">
+			<button class="btn btn-primary pull-right" id="add-new">新增</button>
 		</div>
+
+		<table class="table table-bordered table-hover">
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>学科组名称</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php
+				foreach ($subjectList as $key => $subject) {
+					echo "<tr>";
+					echo "<td>{$subject["id"]}</td>";
+					echo "<td>{$subject["title"]}</td>";
+					echo "<td>
+					<button onclick='editsubject({$subject["id"]})' class='btn btn-mini btn-primary'><i class=\"icon-edit\"></i> 编辑</button>  
+					<a class='btn btn-mini btn-danger' href='subject.php?action=delete&id={$subject["id"]}'>
+					<i class='icon-trash'></i> 删除</a>
+					</td>";
+					echo "</tr>";
+				}
+				?>
+			</tbody>
+		</table>
 	</div>
 </div>
 
